@@ -89,7 +89,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set the Kubernetes context
-        uses: azure/k8s-set-context@v3
+        uses: minikube
         with:
           method: kubeconfig
           kubeconfig: ${{secrets.KUBECONFIG}}
@@ -98,7 +98,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Deploy to the Kubernetes cluster
-        uses: azure/k8s-deploy@v4
+        uses: minikube
         with:
           skip-tls-verify: true
           manifests: |
